@@ -1,32 +1,32 @@
 class BiggestCitiesModel {
-  List<Locations> _locations;
+  List<BiggestLocations> _biggestCities;
 
-  BiggestCitiesModel({List<Locations> locations}) {
-    this._locations = locations;
+  BiggestCitiesModel({List<BiggestLocations> locations}) {
+    this._biggestCities = locations;
   }
 
-  List<Locations> get locations => _locations;
-  set locations(List<Locations> locations) => _locations = locations;
+  List<BiggestLocations> get locations => _biggestCities;
+  set locations(List<BiggestLocations> locations) => _biggestCities = locations;
 
   BiggestCitiesModel.fromJson(Map<String, dynamic> json) {
     if (json['Locations'] != null) {
-      _locations = new List<Locations>();
+      _biggestCities = new List<BiggestLocations>();
       json['Locations'].forEach((v) {
-        _locations.add(new Locations.fromJson(v));
+        _biggestCities.add(new BiggestLocations.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this._locations != null) {
-      data['Locations'] = this._locations.map((v) => v.toJson()).toList();
+    if (this._biggestCities != null) {
+      data['Locations'] = this._biggestCities.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class Locations {
+class BiggestLocations {
   String _locationName;
   int _locationId;
   String _searchType;
@@ -38,7 +38,7 @@ class Locations {
   Null _courtseyUrl;
   List<AirComponents> _airComponents;
 
-  Locations(
+  BiggestLocations(
       {String locationName,
         int locationId,
         String searchType,
@@ -83,7 +83,7 @@ class Locations {
   set airComponents(List<AirComponents> airComponents) =>
       _airComponents = airComponents;
 
-  Locations.fromJson(Map<String, dynamic> json) {
+  BiggestLocations.fromJson(Map<String, dynamic> json) {
     _locationName = json['locationName'];
     _locationId = json['locationId'];
     _searchType = json['searchType'];
